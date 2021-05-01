@@ -1,8 +1,7 @@
 import React from 'react'
-import background from "../images/header_background.jpg"
 import Typed from 'react-typed'
 
-const Header = () => {
+const Header = ({scrollToMain}) => {
     return (
         <div className ="header-wrapper">
             <div className="main-info">
@@ -10,15 +9,13 @@ const Header = () => {
                 <Typed
                     className="typed-text"
                     strings={["C++/C", "iOS Development", "FinTech", "Full Stack"]}
-                    typedSpeed={40}
+                    typeSpeed={50}
                     backSpeed={40}
                     loop
                 />
-                <a href="#" className="btn-main">View My Portfolio</a>
+                <button className="btn-main" onClick={scrollToMain}>View My Portfolio</button>
             </div>
         </div>
-        
-
     )
 }
 

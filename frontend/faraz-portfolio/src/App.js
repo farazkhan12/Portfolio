@@ -2,11 +2,17 @@ import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
+import TicTacToe from "./components/TicTacToe"
 import Particles from 'react-particles-js';
+import React, { useRef, scroller } from 'react';
 
 function App() {
+  const mainPageRef = useRef(null);
+
+  const scrollToMainPage = (ref) => ref.current.scrollIntoView({behavior: 'smooth', block: 'start'});
   return (
     <>
+    <Navbar />
     <Particles 
     className="particles-canvas"
       params={{
@@ -43,8 +49,10 @@ function App() {
           }
         }
       }}/>
-    <Navbar />
-    <Header />
+    <Header scrollToMain={()=> scrollToMainPage(mainPageRef)}/>
+    <div className="main-page" ref={mainPageRef}>
+    <TicTacToe />
+    </div>
     </>
   );
 }
