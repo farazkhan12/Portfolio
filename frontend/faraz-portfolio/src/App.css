@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&family=Yesteryear&display=swap');
+
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif !important;
 }
 
 .main-page {
@@ -23,10 +25,31 @@ nav {
   height: 11rem;
 }
 
+nav a.navbar-brand {
+  font-size: 50px;
+  font-family: 'Satisfy', cursive;
+  width: 90px;
+  border-radius: 50%;
+  border-style: solid;
+  border: 3px solid whitesmoke;
+  text-align: center;
+}
+
+nav a.navbar-brand:hover {
+  transition: transform 0.4s;
+  transform: rotate(30deg);
+}
+
 nav.navbar{
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
   background-color:rgba(0,0,0,0.3);
+}
+
+nav.navbar.custom{
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  background-color: #005858;
 }
 
 /******************************* NAVBAR LINKS *******************************/
@@ -41,8 +64,6 @@ nav a.nav-link {
 nav ul li {
   text-transform: uppercase;
 }
-
-.navbar-nav
 
 .navbar-nav > li > a {
   margin-right: 0.75rem;
@@ -68,13 +89,19 @@ nav ul li {
   }
 }
 
-.navbar-nav > li > a.active, .navbar-nav > li > a.active:focus {
-  border-top: 0.1875rem solid teal;
+.navbar-nav > li.nav-item > a.active, .navbar-nav > li > a.active:focus {
+  transition: transform 1s;
+  transform: scale(1.1);
 }
 
-.navbar-nav > li > a:hover {
-  border-top: 0.1875rem solid teal;
-  padding: 4px 4px 4px 4px;
+.navbar-nav > li.nav-item > a:hover {
+  transition: transform 1s;
+  transform: scale(1.1);
+}
+
+.navbar-nav > li.nav-item-social > a > i:hover  {
+  transition: transform 0.2s;
+  transform: scale(1.1);
 }
 
 /******************************* HEADER *******************************/
@@ -104,6 +131,7 @@ nav ul li {
 
 .main-info h1 {
   color: whitesmoke;
+  font-weight: 400;
 }
 
 @media(max-width: 768px) {
@@ -131,7 +159,7 @@ nav ul li {
   background-color:rgba(0,0,0,0);
   border: 0.0625rem solid whitesmoke;
   text-transform: capitalize;
-  border-radius: 0.15rem;
+  border-radius: 0.25rem;
   padding: 0.625rem 0.75rem 0.75rem 0.75rem;
   color: whitesmoke;
   margin: 2rem;
@@ -141,8 +169,8 @@ nav ul li {
 
 .btn-main:hover {
   text-decoration: none;
-  border: 0.0625rem solid teal;
-  background-color: teal;
+  border: 0.0625rem solid #005858;
+  background-color: #005858;
   color: whitesmoke;
 }
 
@@ -164,13 +192,18 @@ nav ul li {
 /******************************* TICTACTOE *******************************/
 
 .game {
-  z-index: 2;
-  position: sticky;
-  width: 500px;
-  border: 5px solid goldenrod;
-  padding: 50px;
-  margin: auto;
-  border-radius: 0.15rem;
+  flex: 1;
+  margin: 0 0.3rem;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
 }
 
 .game h1 {

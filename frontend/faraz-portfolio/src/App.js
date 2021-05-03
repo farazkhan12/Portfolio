@@ -2,9 +2,10 @@ import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
-import TicTacToe from "./components/TicTacToe"
+import Cards from "./components/Cards";
 import Particles from 'react-particles-js';
 import React, { useRef, scroller } from 'react';
+import Footer from "./components/Footer";
 
 function App() {
   const mainPageRef = useRef(null);
@@ -51,7 +52,10 @@ function App() {
       }}/>
     <Header scrollToMain={()=> scrollToMainPage(mainPageRef)}/>
     <div className="main-page" ref={mainPageRef}>
-    <TicTacToe />
+    <Cards />
+    </div>
+    <div className="footer" >
+      <Footer />
     </div>
     </>
   );
