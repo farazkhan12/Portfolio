@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&family=Yesteryear&display=swap');
 
-body {
+html, body {
+  background-color: honeydew !important;
+  height: 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, div, span, a {
   font-family: 'Raleway', sans-serif !important;
+  font-weight: 400 !important;
 }
 
 .main-page {
@@ -10,11 +16,30 @@ body {
   background-color: honeydew;
   background-size: cover;
   background-position: center;
-  height: 90vh;
   z-index: 2;
 }
 
 /******************************* NAVBAR *******************************/
+
+/*** TEST ***/
+.counter{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+}
+
+.shop {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  padding-top: 110px;
+}
+
+/*** TEST ***/
 
 nav {
   z-index: 2;
@@ -25,19 +50,20 @@ nav {
   height: 11rem;
 }
 
-nav a.navbar-brand {
-  font-size: 50px;
-  font-family: 'Satisfy', cursive;
+nav a.navbar-brand.custom {
+  font-size: 50px !important;
+  font-family: 'Satisfy', cursive !important;
   width: 90px;
   border-radius: 50%;
   border-style: solid;
   border: 3px solid whitesmoke;
   text-align: center;
+  color: whitesmoke !important;
 }
 
 nav a.navbar-brand:hover {
   transition: transform 0.4s;
-  transform: rotate(30deg);
+  transform: rotate(-30deg);
 }
 
 nav.navbar{
@@ -49,7 +75,9 @@ nav.navbar{
 nav.navbar.custom{
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  background-color: #005858;
+  /* background-color: #212b31; */
+  background-color: #002525;
+  /* background-color: #005858; */
 }
 
 /******************************* NAVBAR LINKS *******************************/
@@ -58,7 +86,7 @@ nav a.nav-link {
   font-weight: 500;
   letter-spacing: 0.0375rem;
   cursor: pointer;
-  color: whitesmoke !important;
+  color: whitesmoke;
 }
 
 nav ul li {
@@ -66,10 +94,8 @@ nav ul li {
 }
 
 .navbar-nav > li > a {
-  margin-right: 0.75rem;
-  margin-left: 0.75rem;
-  color: whitesmoke !important;
-  border-top: 0.1875rem solid rgba(255, 255, 255, 0);
+  margin-right: 0.55rem;
+  margin-left: 0.55rem;
 }
 
 .navbar-brand {
@@ -89,29 +115,28 @@ nav ul li {
   }
 }
 
-.navbar-nav > li.nav-item > a.active, .navbar-nav > li > a.active:focus {
-  transition: transform 1s;
-  transform: scale(1.1);
+@media(min-width: 968px) {
+  .navbar-nav > li.nav-item > a:hover {
+    transition: transform 1s;
+    transform: scale(1.1);
+  }
+  
+  .navbar-nav > li.nav-item-social > a > i:hover  {
+    transition: transform 0.2s;
+    transform: scale(1.1);
+  }
 }
 
-.navbar-nav > li.nav-item > a:hover {
-  transition: transform 1s;
-  transform: scale(1.1);
-}
-
-.navbar-nav > li.nav-item-social > a > i:hover  {
-  transition: transform 0.2s;
-  transform: scale(1.1);
-}
 
 /******************************* HEADER *******************************/
 
 .header-wrapper {
   position: relative;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/header_background.jpg) no-repeat;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/space-background.jpg) no-repeat;
+  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/header_background.jpg) no-repeat; */
   background-size: cover;
   background-position: center;
-  height: 90vh;
+  height: 100vh;
 }
 
 .main-info {

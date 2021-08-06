@@ -1,38 +1,15 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 
-function RenderSquare(i, squares, setSquares, setPlayer, disable) {
-    const [spot, setSpot] = useState(() => {
-        return null
-    })
-
-    function swapTurns() {
-        if (spot !== "X" && spot !== "O" && disable === false){
-            setPlayer(prevPlayer => {
-                setSpot(prevPlayer)
-                setSquares(prevSquares => {
-                    prevSquares[i] = prevPlayer
-                    return prevSquares
-                });
-
-                return (prevPlayer === "X" ? "O" : "X")
-            });
-        }
-    }
-
-    useEffect(() => {
-        // manually deep compare here before updating state
-        if(squares[i] === null && spot != null) setSpot(null)
-     },[squares])
-
-    return (
-        <button className="square" onClick={swapTurns}>
-          {spot}
-        </button>
-    );
+const RenderSquare = (props) => {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.val}
+    </button>
+  )
 }
 
-function Board() {
+const Board = () => {
     const [player, setPlayer] = useState("X")
 
     const [squares, setSquares] = useState(() => {
@@ -46,8 +23,12 @@ function Board() {
     const winner = calculateWinner(squares);
     let status;
     useEffect(() => {
-        if (winner) setDisable(true)
-      }, [winner]);
+        if (winner){
+          status = 'Winner: ' + winner;
+          setDisable(true)
+        } 
+
+    }, [winner]);
 
     if (winner) {
       status = 'Winner: ' + winner;
@@ -61,31 +42,35 @@ function Board() {
         setPlayer("X")
     }
 
+    function swapTurns(i, val, disable) {
+      if (val !== "X" && val !== "O" && disable === false){
+          setPlayer(prevPlayer => {
+              setSquares(prevSquares => {
+                  prevSquares[i] = prevPlayer
+                  return prevSquares
+              });
 
-    console.log(squares[0] == null ? "null" : squares[0])
+              return (prevPlayer === "X" ? "O" : "X")
+          })
+      }
+    }
 
     return (
         <>
-        <h1>{status}</h1>
-        <div className="game-board">
-        {RenderSquare(0, squares, setSquares, setPlayer, disable)}
-        {RenderSquare(1, squares, setSquares, setPlayer, disable)}
-        {RenderSquare(2, squares, setSquares, setPlayer, disable)}
-        {RenderSquare(3, squares, setSquares, setPlayer, disable)}
-        {RenderSquare(4, squares, setSquares, setPlayer, disable)}
-        {RenderSquare(5, squares, setSquares, setPlayer, disable)}
-        {RenderSquare(6, squares, setSquares, setPlayer, disable)}
-        {RenderSquare(7, squares, setSquares, setPlayer, disable)}
-        {RenderSquare(8, squares, setSquares, setPlayer, disable)}
-        </div>
-        <div className="restart-wrapper">
-        <button className="restart-game" onClick={restartClicked}>Restart</button>
-        </div>
+        <h1 className="font-weight-normal">{status}</h1>
+          <div className="game-board">
+            {squares.map((val, ind) => (
+              <RenderSquare val={val} onClick={() => swapTurns(ind, val, disable)}></RenderSquare>
+            ))}
+          </div>
+          <div className="restart-wrapper">
+            <a className="btn btn-default btn-lg" onClick={restartClicked}>Restart</a>
+          </div>
         </>
-      );
+      )
 }
 
-function TicTacToe() {
+const TicTacToe = () => {
     
     return (
         <div className="game">

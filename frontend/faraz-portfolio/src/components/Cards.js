@@ -6,7 +6,7 @@ import TicTacToe from './TicTacToe'
 function Cards() {
     return (
         <div className='cards'>
-            <h1>Check out my Experience!</h1>
+            <h1 className="font-weight-normal">Check out my Experience!</h1>
             <div className="cards-container">
                 <div className="cards-wrapper">
                     <ul className="cards-items">

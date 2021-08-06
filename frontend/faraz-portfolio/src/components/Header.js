@@ -5,10 +5,10 @@ const Header = ({scrollToMain}) => {
     return (
         <div className ="header-wrapper">
             <div className="main-info">
-                <h1>Faraz Khan, iOS Mobile Engineer.</h1>
+                <h1 className="display-3">Hello, I'm Faraz Khan</h1>
                 <Typed
                     className="typed-text"
-                    strings={["C++/C", "iOS Development", "FinTech", "Full Stack"]}
+                    strings={["C++ Engineer", "iOS Developer", "Python Developer", "Full Stack Engineer"]}
                     typeSpeed={50}
                     backSpeed={40}
                     loop
